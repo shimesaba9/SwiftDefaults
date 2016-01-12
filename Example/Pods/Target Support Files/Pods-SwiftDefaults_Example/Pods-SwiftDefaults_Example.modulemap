@@ -1,0 +1,6 @@
+framework module Pods_SwiftDefaults_Example {
+  umbrella header "Pods-SwiftDefaults_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

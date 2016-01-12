@@ -1,0 +1,6 @@
+framework module SwiftDefaults {
+  umbrella header "SwiftDefaults-umbrella.h"
+
+  export *
+  module * { export * }
+}

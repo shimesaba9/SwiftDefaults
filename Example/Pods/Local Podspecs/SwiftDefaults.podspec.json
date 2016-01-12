@@ -1,0 +1,25 @@
+{
+  "name": "SwiftDefaults",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftDefaults.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/SwiftDefaults",
+  "license": "MIT",
+  "authors": {
+    "shimesaba9": "hshs012@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/SwiftDefaults.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "SwiftDefaults": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
