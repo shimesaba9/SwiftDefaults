@@ -9,5 +9,10 @@
 import Cocoa
 
 class MyDefaults: SwiftDefaults {
-
+    static let sharedInstance = MyDefaults()
+    private override init() { super.init() }
+    
+    dynamic var value: String? = "10"
+    dynamic var value2: String = "10"
+    dynamic var value3: Int = 1
 }

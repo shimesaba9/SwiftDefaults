@@ -22,7 +22,7 @@
 		1F9A73FCE8FB5B498DDBE09A673804EF /* Nimble-Snapshots-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E13647534D1220F6C05382BE763A06B6 /* Nimble-Snapshots-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20DED612A8439132802DB427AF033FE8 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = B2579450CF15E307A3DE58AA966D69F3 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223715D8E69C89B7E44CA1C6DACDA70A /* SwiftDefaults-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FC61B882C562298DE7374BB62E200B /* SwiftDefaults-dummy.m */; };
-		24931306D6920A29A312CA695D160A74 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE4E5AD21F782269F4A1149A390B63A /* ReplaceMe.swift */; };
+		24931306D6920A29A312CA695D160A74 /* SwiftDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE4E5AD21F782269F4A1149A390B63A /* SwiftDefaults.swift */; };
 		28F2071FFF5C5B0E9DEB6C3FE43A30CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824E7E4508E1A8CC3DDFF89F639AA1A3 /* UIKit.framework */; };
 		2D3B916F7168E9412EDB95BA203A5BB4 /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9F459E31DA81F5231DDC1B69332F8E /* ThrowError.swift */; };
 		33264C6A7A3536AD91EF42B3E8CC8220 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18139039A0FE80ADC6A3985117366A4 /* BeGreaterThanOrEqualTo.swift */; };
@@ -342,7 +342,7 @@
 		FD51F90687F1FD2CD6E2CDF0E3F62C27 /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
 		FDA1C9A64A5B45DEFCFFD313C29302D3 /* QuickSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickSpec.m; path = Quick/QuickSpec.m; sourceTree = "<group>"; };
 		FEF7AC68E5B6497E419278307A1CA225 /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+QCKSelectorName.h"; path = "Quick/NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
-		FFE4E5AD21F782269F4A1149A390B63A /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
+		FFE4E5AD21F782269F4A1149A390B63A /* SwiftDefaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,7 +534,7 @@
 		1F364233134DBF4DDD021FE4A4B2CA5C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FFE4E5AD21F782269F4A1149A390B63A /* ReplaceMe.swift */,
+				FFE4E5AD21F782269F4A1149A390B63A /* SwiftDefaults.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1038,7 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24931306D6920A29A312CA695D160A74 /* ReplaceMe.swift in Sources */,
+				24931306D6920A29A312CA695D160A74 /* SwiftDefaults.swift in Sources */,
 				223715D8E69C89B7E44CA1C6DACDA70A /* SwiftDefaults-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
