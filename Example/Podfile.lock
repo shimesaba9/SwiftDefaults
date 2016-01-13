@@ -10,7 +10,7 @@ PODS:
     - Nimble
     - Quick
   - Quick (0.8.0)
-  - SwiftDefaults (0.1.0)
+  - SwiftDefaults (0.1.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -28,6 +28,6 @@ SPEC CHECKSUMS:
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Nimble-Snapshots: ab41dd737dcd33a0b0cb005a30465fef70b7207a
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
-  SwiftDefaults: 2779f3fa1f754acfaf946e40c0f7a57983bb884e
+  SwiftDefaults: 5ace1291fb61912763e3553edbe75cdbe21048ce
 
 COCOAPODS: 0.39.0

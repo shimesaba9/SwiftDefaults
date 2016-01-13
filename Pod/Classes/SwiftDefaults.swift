@@ -18,9 +18,9 @@ public class SwiftDefaults: NSObject {
 
 extension SwiftDefaults {
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
         if let keyPath = keyPath {
             userDefaults.setObject(change?["new"], forKey: keyPath)
+            userDefaults.synchronize()
         }
     }
 }
