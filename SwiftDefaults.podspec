@@ -9,32 +9,31 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftDefaults"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SwiftDefaults."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+  s.summary          = "SwiftDefaults provides accessing to NSUserDefaults using property."
   s.description      = <<-DESC
-                       DESC
+SwiftDefaults provides accessing to NSUserDefaults using property.
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SwiftDefaults"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+```swift
+import SwiftDefaults
+
+class MyDefaults: SwiftDefaults {
+    dynamic var value: String? = "10"
+    dynamic var value2: String = "10"
+    dynamic var value3: Int = 1
+}
+
+print(MyDefaults().value) // "10"
+print(MyDefaults().value2) // "10"
+MyDefaults().value2 = "2"
+print(MyDefaults().value2) // "2"
+```
+                       DESC
+  s.homepage         = "https://github.com/shimesaba9/SwiftDefaults"
   s.license          = 'MIT'
   s.author           = { "shimesaba9" => "hshs012@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SwiftDefaults.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.source           = { :git => "https://github.com/shimesaba9/SwiftDefaults.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/shimesaba43'
   s.platform     = :ios, '8.0'
   s.requires_arc = true
-
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SwiftDefaults' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
