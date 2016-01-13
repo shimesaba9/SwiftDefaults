@@ -10,7 +10,18 @@ public class SwiftDefaults: NSObject {
         setupProperty()
         addObserver()
     }
-    
+}
+
+extension SwiftDefaults {
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if let keyPath = keyPath {
+            userDefaults.setObject(change?["new"], forKey: keyPath)
+        }
+    }
+}
+
+extension SwiftDefaults {
     private func registerDefaults() {
         let dic = propertyNames.reduce([String:AnyObject]()) { (var dic, key) -> [String:AnyObject] in
             dic[key] = valueForKey(key)
@@ -33,12 +44,5 @@ public class SwiftDefaults: NSObject {
     
     private var propertyNames: [String] {
         return Mirror(reflecting: self).children.flatMap { $0.label }
-    }
-    
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
-        if let keyPath = keyPath {
-            userDefaults.setObject(change?["new"], forKey: keyPath)
-        }
     }
 }
