@@ -5,11 +5,28 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftDefaults.svg?style=flat)](http://cocoapods.org/pods/SwiftDefaults)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftDefaults.svg?style=flat)](http://cocoapods.org/pods/SwiftDefaults)
 
+## Description
+
+SwiftDefaults provides accessing to NSUserDefaults using property.
+
+```swift
+import SwiftDefaults
+
+class MyDefaults: SwiftDefaults {
+    dynamic var value: String? = "10"
+    dynamic var value2: String = "10"
+    dynamic var value3: Int = 1
+}
+
+print(MyDefaults().value) // "10"
+print(MyDefaults().value2) // "10"
+MyDefaults().value2 = "2"
+print(MyDefaults().value2) // "2"
+```
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
@@ -22,7 +39,7 @@ pod "SwiftDefaults"
 
 ## Author
 
-shimesaba9, hshs012@gmail.com
+shimesaba9, [@shimesaba43](https://twitter.com/shimesaba43)
 
 ## License
 
