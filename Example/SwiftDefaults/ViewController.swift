@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(MyDefaults.sharedInstance.value2)
-        MyDefaults.sharedInstance.value2 = "2"
-        print(MyDefaults.sharedInstance.value2)
+        print(MyDefaults().value2)
+        MyDefaults().value2 = "2"
+        print(MyDefaults().value2)
     }
 }

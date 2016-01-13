@@ -6,12 +6,10 @@
 //  Copyright © 2016年 CocoaPods. All rights reserved.
 //
 
-import Cocoa
+import UIKit
+import SwiftDefaults
 
 class MyDefaults: SwiftDefaults {
-    static let sharedInstance = MyDefaults()
-    private override init() { super.init() }
-    
     dynamic var value: String? = "10"
     dynamic var value2: String = "10"
     dynamic var value3: Int = 1

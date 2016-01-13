@@ -1,7 +1,9 @@
-class SwiftDefaults: NSObject {
+import Foundation
+
+public class SwiftDefaults: NSObject {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    override init() {
+    public override init() {
         super.init()
         
         registerDefaults()
@@ -33,7 +35,7 @@ class SwiftDefaults: NSObject {
         return Mirror(reflecting: self).children.flatMap { $0.label }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         if let keyPath = keyPath {
             userDefaults.setObject(change?["new"], forKey: keyPath)
