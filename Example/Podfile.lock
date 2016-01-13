@@ -28,6 +28,6 @@ SPEC CHECKSUMS:
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Nimble-Snapshots: ab41dd737dcd33a0b0cb005a30465fef70b7207a
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
-  SwiftDefaults: 1c95781c20909a3f379635d53dee031d07c7de44
+  SwiftDefaults: 2779f3fa1f754acfaf946e40c0f7a57983bb884e
 
 COCOAPODS: 0.39.0

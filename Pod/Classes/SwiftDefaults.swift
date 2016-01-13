@@ -10,6 +10,10 @@ public class SwiftDefaults: NSObject {
         setupProperty()
         addObserver()
     }
+    
+    deinit {
+        removeObserver()
+    }
 }
 
 extension SwiftDefaults {
@@ -39,6 +43,12 @@ extension SwiftDefaults {
     private func addObserver() {
         propertyNames.forEach {
             addObserver(self, forKeyPath: $0, options: .New, context: nil)
+        }
+    }
+    
+    private func removeObserver() {
+        propertyNames.forEach {
+            removeObserver(self, forKeyPath: $0)
         }
     }
     
