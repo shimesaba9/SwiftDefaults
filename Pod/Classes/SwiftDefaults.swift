@@ -19,7 +19,12 @@ public class SwiftDefaults: NSObject {
 extension SwiftDefaults {
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if let keyPath = keyPath {
-            userDefaults.setObject(change?["new"], forKey: keyPath)
+            if let value = change?["new"] where !(value is NSNull) {
+                userDefaults.setObject(value is NSCoding ? NSKeyedArchiver.archivedDataWithRootObject(value) : value, forKey: keyPath)
+            }else{
+                userDefaults.removeObjectForKey(keyPath)
+            }
+
             userDefaults.synchronize()
         }
     }
@@ -36,7 +41,12 @@ extension SwiftDefaults {
     
     private func setupProperty() {
         propertyNames.forEach {
-            setValue(userDefaults.objectForKey($0), forKey: $0)
+            let value = userDefaults.objectForKey($0)
+            if let data = value as? NSData, decodedValue = NSKeyedUnarchiver.unarchiveObjectWithData(data){
+                setValue(decodedValue, forKey: $0)
+            }else{
+                setValue(value, forKey: $0)
+            }
         }
     }
     
