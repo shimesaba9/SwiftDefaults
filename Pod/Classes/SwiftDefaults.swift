@@ -22,7 +22,7 @@ extension SwiftDefaults {
             if let value = change?["new"] where !(value is NSNull) {
                 userDefaults.setObject(value is NSCoding ? NSKeyedArchiver.archivedDataWithRootObject(value) : value, forKey: storeKey(keyPath))
             }else{
-                userDefaults.removeObjectForKey(keyPath)
+                userDefaults.removeObjectForKey(storeKey(keyPath))
             }
 
             userDefaults.synchronize()
