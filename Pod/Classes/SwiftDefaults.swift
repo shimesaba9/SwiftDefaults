@@ -20,7 +20,7 @@ extension SwiftDefaults {
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if let keyPath = keyPath {
             if let value = change?["new"] where !(value is NSNull) {
-                userDefaults.setObject(value is NSCoding ? NSKeyedArchiver.archivedDataWithRootObject(value) : value, forKey: keyPath)
+                userDefaults.setObject(value is NSCoding ? NSKeyedArchiver.archivedDataWithRootObject(value) : value, forKey: storeKey(keyPath))
             }else{
                 userDefaults.removeObjectForKey(keyPath)
             }
@@ -31,9 +31,13 @@ extension SwiftDefaults {
 }
 
 extension SwiftDefaults {
+    private func storeKey(propertyName: String) -> String{
+        return "\(self.dynamicType)_\(propertyName)"
+    }
+    
     private func registerDefaults() {
         let dic = propertyNames.reduce([String:AnyObject]()) { (var dic, key) -> [String:AnyObject] in
-            dic[key] = valueForKey(key)
+            dic[storeKey(key)] = valueForKey(key)
             return dic
         }
         userDefaults.registerDefaults(dic)
@@ -41,7 +45,7 @@ extension SwiftDefaults {
     
     private func setupProperty() {
         propertyNames.forEach {
-            let value = userDefaults.objectForKey($0)
+            let value = userDefaults.objectForKey(storeKey($0))
             if let data = value as? NSData, decodedValue = NSKeyedUnarchiver.unarchiveObjectWithData(data){
                 setValue(decodedValue, forKey: $0)
             }else{
@@ -66,3 +70,5 @@ extension SwiftDefaults {
         return Mirror(reflecting: self).children.flatMap { $0.label }
     }
 }
+
+
