@@ -16,12 +16,22 @@ class MyDefaults: SwiftDefaults {
     dynamic var value: String? = "10"
     dynamic var value2: String = "10"
     dynamic var value3: Int = 1
+    dynamic var value4: Person? = nil
 }
 
-print(MyDefaults().value) // "10"
-print(MyDefaults().value2) // "10"
+print(MyDefaults().value2)
 MyDefaults().value2 = "2"
-print(MyDefaults().value2) // "2"
+print(MyDefaults().value2)
+
+print("Stored person instance: \(MyDefaults().value4)")
+let p = Person()
+p.firstName = "Elvis"
+p.lastName = "Presley"
+p.age = 42
+MyDefaults().value4 = p
+print("Stored person instance: \(MyDefaults().value4)")
+MyDefaults().value4 = nil
+print("Stored nil person: \(MyDefaults().value4)")
 ```
 
 ## Usage
