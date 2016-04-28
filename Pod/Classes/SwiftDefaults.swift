@@ -36,9 +36,10 @@ extension SwiftDefaults {
     }
     
     private func registerDefaults() {
-        let dic = propertyNames.reduce([String:AnyObject]()) { (var dic, key) -> [String:AnyObject] in
-            dic[storeKey(key)] = valueForKey(key)
-            return dic
+        let dic = propertyNames.reduce([String:AnyObject]()) { (dic, key) -> [String:AnyObject] in
+            var mutableDic = dic
+            mutableDic[storeKey(key)] = valueForKey(key)
+            return mutableDic
         }
         userDefaults.registerDefaults(dic)
     }
