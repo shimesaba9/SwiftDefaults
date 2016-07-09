@@ -21,7 +21,7 @@ extension SwiftDefaults {
         if let keyPath = keyPath {
             if let value = change?["new"] where !(value is NSNull) {
                 userDefaults.setObject(value is NSCoding ? NSKeyedArchiver.archivedDataWithRootObject(value) : value, forKey: storeKey(keyPath))
-            }else{
+            } else {
                 userDefaults.removeObjectForKey(storeKey(keyPath))
             }
 
@@ -49,7 +49,7 @@ extension SwiftDefaults {
             let value = userDefaults.objectForKey(storeKey($0))
             if let data = value as? NSData, decodedValue = NSKeyedUnarchiver.unarchiveObjectWithData(data){
                 setValue(decodedValue, forKey: $0)
-            }else{
+            } else {
                 setValue(value, forKey: $0)
             }
         }
