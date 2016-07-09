@@ -32,6 +32,8 @@ MyDefaults().value4 = p
 print("Stored person instance: \(MyDefaults().value4)")
 MyDefaults().value4 = nil
 print("Stored nil person: \(MyDefaults().value4)")
+
+NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.value4DidChanged), name: "value4DidChanged", object: nil)
 ```
 
 ## Usage

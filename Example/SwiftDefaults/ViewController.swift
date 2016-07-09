@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         MyDefaults().value2 = "2"
         print(MyDefaults().value2)
         
+        NSNotificationCenter.defaultCenter().addObserver(
+            self, selector: #selector(ViewController.value4DidChanged),
+            name: "value4DidChanged", object: nil)
         
         print("Stored person instance: \(MyDefaults().value4)")
         let p = Person()
@@ -27,6 +30,9 @@ class ViewController: UIViewController {
         print("Stored person instance: \(MyDefaults().value4)")
         MyDefaults().value4 = nil
         print("Stored nil person: \(MyDefaults().value4)")
-        
+    }
+    
+    func value4DidChanged() {
+        print("value4 did changed.")
     }
 }

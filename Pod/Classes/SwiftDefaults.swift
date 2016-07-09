@@ -24,8 +24,12 @@ extension SwiftDefaults {
             } else {
                 userDefaults.removeObjectForKey(storeKey(keyPath))
             }
-
+            
             userDefaults.synchronize()
+            
+            let notification = NSNotification(
+                name: "\(keyPath)DidChanged", object: nil)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
         }
     }
 }
