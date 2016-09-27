@@ -9,6 +9,9 @@
 import Foundation
 
 class Person: NSObject, NSCoding{
+    public func encode(with aCoder: NSCoder) {
+    }
+
     var firstName: String? = ""
     var lastName: String? = ""
     var age: Int = 18
@@ -18,15 +21,15 @@ class Person: NSObject, NSCoding{
     }
     
     required init?(coder aDecoder: NSCoder) {
-        firstName = aDecoder.decodeObjectForKey("firstName") as? String
-        lastName = aDecoder.decodeObjectForKey("lastName") as? String
-        age = aDecoder.decodeIntegerForKey("age")
+        firstName = aDecoder.decodeObject(forKey: "firstName") as? String
+        lastName = aDecoder.decodeObject(forKey: "lastName") as? String
+        age = aDecoder.decodeInteger(forKey: "age")
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(firstName, forKey: "firstName")
-        aCoder.encodeObject(lastName, forKey: "lastName")
-        aCoder.encodeInteger(age, forKey: "age")
+        aCoder.encode(firstName, forKey: "firstName")
+        aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(age, forKey: "age")
     }
 }
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SwiftDefaults"
-  s.version          = "0.1.3"
+  s.version          = "0.1.5"
   s.summary          = "SwiftDefaults provides accessing to NSUserDefaults using property."
   s.description      = <<-DESC
 SwiftDefaults provides accessing to NSUserDefaults using property.
@@ -36,4 +36,7 @@ print(MyDefaults().value2) // "2"
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
+  s.xcconfig = {
+    'SWIFT_VERSION' => '3'
+  }
 end
