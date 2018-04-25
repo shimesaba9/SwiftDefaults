@@ -10,10 +10,10 @@ import UIKit
 import SwiftDefaults
 
 class MyDefaults: SwiftDefaults {
-    dynamic var value: String? = "10"
-    dynamic var value2: String = "10"
-    dynamic var value3: Int = 1
-    dynamic var value4: Person? = nil
-    dynamic var value5: Date? = nil
+    @objc dynamic var value: String? = "10"
+    @objc dynamic var value2: String = "10"
+    @objc dynamic var value3: Int = 1
+    @objc dynamic var value4: Person? = nil
+    @objc dynamic var value5: Date? = nil
 }
 
