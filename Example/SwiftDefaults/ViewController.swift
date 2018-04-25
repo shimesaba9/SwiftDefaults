@@ -18,15 +18,15 @@ class ViewController: UIViewController {
         print(MyDefaults().value2)
         
         
-        print("Stored person instance: \(MyDefaults().value4)")
+        print("Stored person instance: \(String(describing: MyDefaults().value4))")
         let p = Person()
         p.firstName = "Elvis"
         p.lastName = "Presley"
         p.age = 42
         MyDefaults().value4 = p
-        print("Stored person instance: \(MyDefaults().value4)")
+        print("Stored person instance: \(String(describing: MyDefaults().value4))")
         MyDefaults().value4 = nil
-        print("Stored nil person: \(MyDefaults().value4)")
+        print("Stored nil person: \(String(describing: MyDefaults().value4))")
         
     }
 }
