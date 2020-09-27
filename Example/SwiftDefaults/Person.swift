@@ -36,6 +36,6 @@ class Person: NSObject, NSCoding{
 extension Person{
     // Readable print
     override var description: String{
-        return "Person=\(firstName, lastName, age)"
+        return "Person=\((firstName, lastName, age))"
     }
 }

@@ -27,7 +27,9 @@ extension SwiftDefaults {
         if let keyPath = keyPath {
             let key = NSKeyValueChangeKey(rawValue: "new")
             if let value = change?[key], !(value is NSNull) {
-                userDefaults.set(value is NSCoding ? NSKeyedArchiver.archivedData(withRootObject: value) : value, forKey: storeKey(keyPath))
+                do {
+                    userDefaults.set(value is NSCoding ? try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false) : value, forKey: storeKey(keyPath))
+                } catch {}
             }else{
                 userDefaults.removeObject(forKey: storeKey(keyPath))
             }
@@ -54,9 +56,9 @@ extension SwiftDefaults {
     fileprivate func setupProperty() {
         propertyNames.forEach {
             let value = userDefaults.object(forKey: storeKey($0))
-            if let data = value as? Data, let decodedValue = NSKeyedUnarchiver.unarchiveObject(with: data){
+            if let data = value as? Data, let decodedValue = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) {
                 setValue(decodedValue, forKey: $0)
-            }else{
+            } else {
                 setValue(value, forKey: $0)
             }
         }
