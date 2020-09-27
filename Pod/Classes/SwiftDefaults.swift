@@ -1,9 +1,15 @@
 import Foundation
 
 open class SwiftDefaults: NSObject {
-    let userDefaults = UserDefaults.standard
+    let userDefaults: UserDefaults
 
-    public override init() {
+    public init(suiteName: String? = nil) {
+        if let suiteName = suiteName {
+            userDefaults = UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
+        } else {
+            userDefaults = UserDefaults.standard
+        }
+        
         super.init()
 
         registerDefaults()
