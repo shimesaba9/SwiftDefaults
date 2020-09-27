@@ -33,7 +33,7 @@ print(MyDefaults().value2) // "2"
   s.author           = { "shimesaba9" => "hshs012@gmail.com" }
   s.source           = { :git => "https://github.com/shimesaba9/SwiftDefaults.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/shimesaba43'
-  s.platform     = :ios, '10.0'
+  s.platform     = :ios, '11.0'
   s.requires_arc = true
   s.swift_version = "5.0"
   s.source_files = 'Pod/Classes/**/*'
