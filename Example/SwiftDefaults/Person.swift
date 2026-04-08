@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Person: NSObject, NSCoding{
-    public func encode(with aCoder: NSCoder) {
-    }
-
+class Person: NSObject, NSCoding {
+    public func encode(with aCoder: NSCoder) {}
+    
     var firstName: String? = ""
     var lastName: String? = ""
     var age: Int = 18
-
+    
     override init(){
         super.init()
     }
@@ -33,7 +32,7 @@ class Person: NSObject, NSCoding{
     }
 }
 
-extension Person{
+extension Person {
     // Readable print
     override var description: String{
         return "Person=\((firstName, lastName, age))"

@@ -16,4 +16,3 @@ class MyDefaults: SwiftDefaults {
     @objc dynamic var value4: Person? = nil
     @objc dynamic var value5: Date? = nil
 }
-

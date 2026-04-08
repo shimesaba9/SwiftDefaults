@@ -9,14 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(MyDefaults().value2)
         MyDefaults().value2 = "2"
         print(MyDefaults().value2)
-        
         
         print("Stored person instance: \(String(describing: MyDefaults().value4))")
         let p = Person()
@@ -27,6 +25,5 @@ class ViewController: UIViewController {
         print("Stored person instance: \(String(describing: MyDefaults().value4))")
         MyDefaults().value4 = nil
         print("Stored nil person: \(String(describing: MyDefaults().value4))")
-        
     }
 }
