@@ -4,7 +4,7 @@ open class SwiftDefaults: NSObject {
     let userDefaults: UserDefaults
     
     public init(suiteName: String? = nil) {
-        if let suiteName = suiteName {
+        if let suiteName {
             userDefaults = UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
         } else {
             userDefaults = UserDefaults.standard
@@ -24,7 +24,7 @@ open class SwiftDefaults: NSObject {
 
 extension SwiftDefaults {
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if let keyPath = keyPath {
+        if let keyPath {
             let key = NSKeyValueChangeKey(rawValue: "new")
             if let value = change?[key], !(value is NSNull) {
                 do {
@@ -45,9 +45,15 @@ extension SwiftDefaults {
     }
     
     fileprivate func registerDefaults() {
-        let dic = propertyNames.reduce([String: AnyObject]()) { (dic, key) -> [String: AnyObject] in
+        let dic = propertyNames.reduce([String: Any]()) { (dic, key) -> [String: Any] in
             var mutableDic = dic
-            mutableDic[storeKey(key)] = value(forKey: key) as AnyObject?
+            if let value = value(forKey: key) {
+                if PropertyListSerialization.propertyList(value, isValidFor: .binary) {
+                    mutableDic[storeKey(key)] = value
+                } else if let encodedValue = try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false) {
+                    mutableDic[storeKey(key)] = encodedValue
+                }
+            }
             return mutableDic
         }
         userDefaults.register(defaults: dic)
