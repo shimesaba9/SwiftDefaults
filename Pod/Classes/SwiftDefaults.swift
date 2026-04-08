@@ -56,7 +56,7 @@ extension SwiftDefaults {
     fileprivate func setupProperty() {
         propertyNames.forEach {
             let value = userDefaults.object(forKey: storeKey($0))
-            if let data = value as? Data, let decodedValue = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) {
+            if let data = value as? Data, let decodedValue = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSObject.self], from: data) {
                 setValue(decodedValue, forKey: $0)
             } else {
                 setValue(value, forKey: $0)

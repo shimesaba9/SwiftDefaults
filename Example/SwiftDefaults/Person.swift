@@ -15,7 +15,7 @@ class Person: NSObject, NSCoding {
     var lastName: String? = ""
     var age: Int = 18
     
-    override init(){
+    override init() {
         super.init()
     }
     
