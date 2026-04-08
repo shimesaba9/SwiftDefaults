@@ -32,8 +32,6 @@ extension SwiftDefaults {
             } else {
                 userDefaults.removeObject(forKey: storeKey(keyPath))
             }
-            
-            userDefaults.synchronize()
         }
     }
 }
