@@ -25,11 +25,10 @@ open class SwiftDefaults: NSObject {
 extension SwiftDefaults {
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if let keyPath {
-            let key = NSKeyValueChangeKey(rawValue: "new")
-            if let value = change?[key], !(value is NSNull) {
-                do {
-                    userDefaults.set(value is NSCoding ? try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false) : value, forKey: storeKey(keyPath))
-                } catch {}
+            if let value = change?[.newKey], !(value is NSNull) {
+                if let valueForStorage = valueForStorage(value) {
+                    userDefaults.set(valueForStorage, forKey: storeKey(keyPath))
+                }
             } else {
                 userDefaults.removeObject(forKey: storeKey(keyPath))
             }
