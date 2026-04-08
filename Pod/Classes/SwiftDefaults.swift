@@ -40,19 +40,25 @@ extension SwiftDefaults {
 }
 
 extension SwiftDefaults {
-    fileprivate func storeKey(_ propertyName: String) -> String{
+    fileprivate func storeKey(_ propertyName: String) -> String {
         return "\(type(of: self))_\(propertyName)"
+    }
+    
+    fileprivate func valueForStorage(_ value: Any) -> Any? {
+        return if PropertyListSerialization.propertyList(value, isValidFor: .binary) {
+            value
+        } else if value is NSCoding {
+            try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
+        } else {
+            nil
+        }
     }
     
     fileprivate func registerDefaults() {
         let dic = propertyNames.reduce([String: Any]()) { (dic, key) -> [String: Any] in
             var mutableDic = dic
-            if let value = value(forKey: key) {
-                if PropertyListSerialization.propertyList(value, isValidFor: .binary) {
-                    mutableDic[storeKey(key)] = value
-                } else if let encodedValue = try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false) {
-                    mutableDic[storeKey(key)] = encodedValue
-                }
+            if let value = value(forKey: key), let valueForStorage = valueForStorage(value) {
+                mutableDic[storeKey(key)] = valueForStorage
             }
             return mutableDic
         }
