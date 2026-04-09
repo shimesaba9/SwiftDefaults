@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SwiftDefaults"
-  s.version          = "0.1.9"
+  s.version          = "1.0.0"
   s.summary          = "SwiftDefaults provides accessing to NSUserDefaults using property."
   s.description      = <<-DESC
 SwiftDefaults provides accessing to NSUserDefaults using property.
