@@ -55,7 +55,7 @@ extension SwiftDefaults {
     fileprivate func valueForStorage(_ value: Any) -> Any? {
         return if PropertyListSerialization.propertyList(value, isValidFor: .binary) {
             value
-        } else if value is NSCoding {
+        } else if value is NSSecureCoding {
             try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: true)
         } else {
             nil
