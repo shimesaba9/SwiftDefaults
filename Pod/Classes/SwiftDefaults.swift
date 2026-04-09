@@ -7,12 +7,9 @@ open class SwiftDefaults: NSObject {
     
     public static var shared: Self {
         let id = ObjectIdentifier(self)
-        print(#function, id, type(of: self))
         if let instance = instances[id] as? Self {
-            print(#function, 1)
             return instance
         }
-        print(#function, 2)
         let newInstance = self.init()
         instances[id] = newInstance
         return newInstance
