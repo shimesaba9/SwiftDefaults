@@ -14,6 +14,7 @@
 		B53967830B7B15AA6F4A8874240573FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		B710A667195C856BD891D09582C3CC10 /* SwiftDefaults-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FC61B882C562298DE7374BB62E200B /* SwiftDefaults-dummy.m */; };
 		BBC2FF00B7D06E42BB7A844471439ED7 /* Pods-SwiftDefaults_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8B5DB5F377C18E6B94C36657958C5 /* Pods-SwiftDefaults_Example-dummy.m */; };
+		E4739C352F878E1A00AD1C36 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4739C342F878E1A00AD1C36 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		BF275582A36C4734C41A98D1F205DCEF /* Pods-SwiftDefaults_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftDefaults_Example-umbrella.h"; sourceTree = "<group>"; };
 		C466E2908171DB99C31C9E6099FE5798 /* Pods-SwiftDefaults_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftDefaults_Example-resources.sh"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E4739C342F878E1A00AD1C36 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EEEC6BC41D1F75782533C3901937C57D /* SwiftDefaults-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftDefaults-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			children = (
 				7DBEE1FE2EB9CC5AC88F148D9A530663 /* Pod */,
 				084480A2563A1680E746CBD8C487FD2C /* Support Files */,
+				E4739C342F878E1A00AD1C36 /* Package.swift */,
 			);
 			name = SwiftDefaults;
 			path = ../..;
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4739C352F878E1A00AD1C36 /* Package.swift in Sources */,
 				B710A667195C856BD891D09582C3CC10 /* SwiftDefaults-dummy.m in Sources */,
 				506AECE1B1255F74B6FB64EC97BEE5A4 /* SwiftDefaults.swift in Sources */,
 			);
