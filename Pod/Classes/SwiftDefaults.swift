@@ -1,9 +1,23 @@
 import Foundation
 
 open class SwiftDefaults: NSObject {
+    private static var instances: [ObjectIdentifier: SwiftDefaults] = [:]
     let userDefaults: UserDefaults
     
-    public init(suiteName: String? = nil) {
+    public static var shared: Self {
+        let id = ObjectIdentifier(self)
+        print(#function, id, type(of: self))
+        if let instance = instances[id] as? Self {
+            print(#function, 1)
+            return instance
+        }
+        print(#function, 2)
+        let newInstance = self.init()
+        instances[id] = newInstance
+        return newInstance
+    }
+    
+    public required init(suiteName: String? = nil) {
         if let suiteName {
             userDefaults = UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
         } else {
