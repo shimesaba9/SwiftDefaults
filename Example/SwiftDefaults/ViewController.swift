@@ -47,11 +47,13 @@ struct MyView: View {
     @AppDefault(\.value3) var value3
     
     var body: some View {
-        Text("Hello, World! \(value3)")
-        Button(action: {
-            value3 += 1
-        }) {
-            Text("increment")
+        VStack {
+            Text("Hello, World! \(value3)")
+            Button(action: {
+                value3 += 1
+            }) {
+                Text("increment")
+            }
         }
     }
 }
