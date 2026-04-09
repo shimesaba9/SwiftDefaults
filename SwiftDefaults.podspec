@@ -35,6 +35,6 @@ print(MyDefaults().value2) // "2"
   s.social_media_url = 'https://twitter.com/shimesaba43'
   s.platform     = :ios, '14.0'
   s.requires_arc = true
-  s.swift_version = "5.0"
+  s.swift_version = "5.9"
   s.source_files = 'Pod/Classes/**/*'
 end
