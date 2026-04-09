@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftDefaults
+import SwiftUI
 
 class MyDefaults: SwiftDefaults {
     @objc dynamic var value: String? = "10"
@@ -17,3 +18,21 @@ class MyDefaults: SwiftDefaults {
     @objc dynamic var value5: Date? = nil
 }
 
+@MainActor
+@propertyWrapper
+struct AppDefault<Value>: DynamicProperty {
+    @StateObject private var observer: AppDefaultObserver<MyDefaults, Value>
+    
+    init(_ keyPath: ReferenceWritableKeyPath<MyDefaults, Value>) {
+        _observer = StateObject(wrappedValue: AppDefaultObserver(keyPath: keyPath, store: MyDefaults.shared))
+    }
+    
+    var wrappedValue: Value {
+        get { observer.value }
+        nonmutating set { observer.value = newValue }
+    }
+    
+    var projectedValue: Binding<Value> {
+        observer.bindingValue
+    }
+}
