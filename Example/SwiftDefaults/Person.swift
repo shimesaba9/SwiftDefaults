@@ -8,9 +8,7 @@
 
 import Foundation
 
-class Person: NSObject, NSCoding, NSSecureCoding {
-    public func encode(with aCoder: NSCoder) {}
-    
+class Person: NSObject, NSSecureCoding {
     var firstName: String? = ""
     var lastName: String? = ""
     var age: Int = 18
@@ -25,7 +23,7 @@ class Person: NSObject, NSCoding, NSSecureCoding {
         age = aDecoder.decodeInteger(forKey: "age")
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(firstName, forKey: "firstName")
         aCoder.encode(lastName, forKey: "lastName")
         aCoder.encode(age, forKey: "age")
