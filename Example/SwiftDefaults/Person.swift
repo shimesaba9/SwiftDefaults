@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Person: NSObject, NSCoding {
+class Person: NSObject, NSCoding, NSSecureCoding {
     public func encode(with aCoder: NSCoder) {}
     
     var firstName: String? = ""
@@ -30,6 +30,8 @@ class Person: NSObject, NSCoding {
         aCoder.encode(lastName, forKey: "lastName")
         aCoder.encode(age, forKey: "age")
     }
+    
+    static var supportsSecureCoding: Bool { return true }
 }
 
 extension Person {

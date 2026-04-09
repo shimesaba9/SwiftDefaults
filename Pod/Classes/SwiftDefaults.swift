@@ -56,7 +56,7 @@ extension SwiftDefaults {
         return if PropertyListSerialization.propertyList(value, isValidFor: .binary) {
             value
         } else if value is NSCoding {
-            try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
+            try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: true)
         } else {
             nil
         }
