@@ -1,10 +1,5 @@
 # SwiftDefaults
 
-[![CI Status](http://img.shields.io/travis/shimesaba9/SwiftDefaults.svg?style=flat)](https://travis-ci.org/shimesaba9/SwiftDefaults)
-[![Version](https://img.shields.io/cocoapods/v/SwiftDefaults.svg?style=flat)](http://cocoapods.org/pods/SwiftDefaults)
-[![License](https://img.shields.io/cocoapods/l/SwiftDefaults.svg?style=flat)](http://cocoapods.org/pods/SwiftDefaults)
-[![Platform](https://img.shields.io/cocoapods/p/SwiftDefaults.svg?style=flat)](http://cocoapods.org/pods/SwiftDefaults)
-
 ## Description
 
 SwiftDefaults provides accessing to NSUserDefaults using property.
@@ -34,18 +29,29 @@ MyDefaults().value4 = nil
 print("Stored nil person: \(MyDefaults().value4)")
 ```
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Installation
 
-SwiftDefaults is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+SwiftDefaults supports Swift Package Manager. CocoaPods support has ended.
 
-```ruby
-pod "SwiftDefaults"
+In Xcode, select **File > Add Package Dependencies** and enter:
+
 ```
+https://github.com/shimesaba9/SwiftDefaults.git
+```
+
+Select a revision that includes `Package.swift` with the current source layout, then add the `SwiftDefaults` product to your target.
+
+For a Swift package, add the repository to `dependencies` and the `SwiftDefaults` product to your target's dependencies. Use Swift 5.9 or later. Supported platforms are iOS 14 or later and macOS 10.15 or later.
+
+## Development
+
+Open `Package.swift` in Xcode to edit or build the library. To build it from the command line, run:
+
+```sh
+swift build
+```
+
+To run the iOS example, open `Example/SwiftDefaults.xcodeproj` and select the `SwiftDefaults_Example` scheme. The example references the package in the parent directory, so no dependency installation is required.
 
 ## Author
 

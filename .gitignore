@@ -24,3 +24,4 @@ DerivedData
 
 # SPM
 .swiftpm/
+.build/

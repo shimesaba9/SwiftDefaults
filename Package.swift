@@ -15,8 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftDefaults",
-            dependencies: [],
-            path: "Pod"
+            dependencies: []
         )
     ]
 )
